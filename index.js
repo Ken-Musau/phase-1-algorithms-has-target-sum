@@ -1,5 +1,13 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const compliments = {};
+  for (const num of array) {
+    if (compliments[num]) {
+      return true;
+    }
+    compliments[target - num] = true;
+  }
+  return false;
 }
 
 /* 
@@ -8,10 +16,16 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  let total = 0;
+  for num in array
+    total +=num
+  return total === target
 */
 
 /*
   Add written explanation of your solution here
+  loop throught the array by target each element in the array,
+  initialize a variable total which is equal to zero. add up each value in the array to get the sum of total elements then finaly compare the value of the total after the loop with the target parameter return true it they are equal false if otherwise
 */
 
 // You can run `node index.js` to view these console logs
